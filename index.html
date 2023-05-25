@@ -3,26 +3,26 @@
 	<script type="text/javascript">
 
 
-		WebApp=window.Telegram.WebApp
+		var WebApp=window.Telegram.WebApp
 
 		var handler = function (captchaObj) {
 				captchaObj.appendTo('#captcha');
 				captchaObj.onReady(function(){
-				    	WebApp.ready()
-				    }).onSuccess(function(){
-				    	result = captchaObj.getValidate();
-				    	WebApp.sendData(JSON.stringify(result))
+						WebApp.ready()
+					}).onSuccess(function(){
+						var result = captchaObj.getValidate();
+						WebApp.sendData(JSON.stringify(result))
 
-				    	//geetest_challenge: result.geetest_challenge
-	    	            //geetest_validate: result.geetest_validate
-	    	            //geetest_seccode: result.geetest_seccode
-				    }).onError(function(){
-				      	WebApp.sendData("False")
-				    })
+						//geetest_challenge: result.geetest_challenge
+						//geetest_validate: result.geetest_validate
+						//geetest_seccode: result.geetest_seccode
+					}).onError(function(){
+						WebApp.sendData("False")
+					})
 			};
 
 
-		info=JSON.parse(WebApp.initData)
+		var info=JSON.parse(WebApp.initData)
 		WebApp.expand()
 		initGeetest({
 				gt: info[0],
