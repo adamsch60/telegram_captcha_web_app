@@ -25,8 +25,8 @@
 		info=JSON.parse(WebApp.initData)
 		WebApp.expand()
 		initGeetest({
-				gt: tuple[0],
-				challenge: tuple[1],
+				gt: info[0],
+				challenge: info[1],
 				offline: false,
 				new_captcha: false,
 				product: 'popup',
@@ -40,7 +40,7 @@
 
 
 
-		sendData(data)
+
 
 
 	</script>
