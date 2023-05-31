@@ -21,7 +21,7 @@
 					}).onSuccess(function(){
 						var result = captchaObj.getValidate();
 						result.challenge=urlParams.get('challenge')
-						WebApp.sendData(JSON.stringify((result))
+						WebApp.sendData(JSON.stringify(result))
 
 						//geetest_challenge: result.geetest_challenge
 						//geetest_validate: result.geetest_validate
