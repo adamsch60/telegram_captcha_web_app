@@ -27,7 +27,7 @@
 						//geetest_validate: result.geetest_validate
 						//geetest_seccode: result.geetest_seccode
 					}).onError(function(){
-					    WebApp.sendData(JSON.stringify({geetest_challenge: urlParams.get('challenge')})
+					    WebApp.sendData(JSON.stringify({geetest_challenge: urlParams.get('challenge')}))
 					})
 			};
 
