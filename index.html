@@ -1,6 +1,15 @@
 <head>
+	<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
 	<script src="https://static.geetest.com/static/js/gt.0.4.9.js"></script>
 	<script type="text/javascript">
+
+
+
+		const queryString = window.location.search;
+		console.log(queryString);
+		// ?product=shirt&color=blue&newuser&size=m
+		const urlParams = new URLSearchParams(queryString)
 
 
 		var WebApp=window.Telegram.WebApp
@@ -11,6 +20,7 @@
 						WebApp.ready()
 					}).onSuccess(function(){
 						var result = captchaObj.getValidate();
+						result.challenge=urlParams.get('challenge')
 						WebApp.sendData(JSON.stringify(result))
 
 						//geetest_challenge: result.geetest_challenge
@@ -22,17 +32,18 @@
 			};
 
 
-		var info=JSON.parse(WebApp.initData)
+		
 		WebApp.expand()
 		initGeetest({
-				gt: info[0],
-				challenge: info[1],
+				gt: urlParams.get('gt'),
+				challenge: urlParams.get('challenge'),
 				offline: false,
 				new_captcha: false,
 				product: 'popup',
 				width: "300px",
 				https: true,
-				api_server: "apiv6.geetest.com"
+				api_server: 'api.geetest.com'
+				//api_server: "apiv6.geetest.com"
 			},   handler)
 
 		
@@ -42,7 +53,7 @@
 
 
 
-
+ 
 	</script>
 </head>
 <body>
