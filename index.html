@@ -21,13 +21,13 @@
 					}).onSuccess(function(){
 						var result = captchaObj.getValidate();
 						result.challenge=urlParams.get('challenge')
-						WebApp.sendData(JSON.stringify(result))
+						WebApp.sendData(JSON.stringify((result))
 
 						//geetest_challenge: result.geetest_challenge
 						//geetest_validate: result.geetest_validate
 						//geetest_seccode: result.geetest_seccode
 					}).onError(function(){
-					    WebApp.sendData({"geetest_challenge": urlParams.get('challenge')})
+					    WebApp.sendData(JSON.stringify({geetest_challenge: urlParams.get('challenge')})
 					})
 			};
 
@@ -58,6 +58,6 @@
 </head>
 <body>
 	<div id="captcha">
-		sth
+		Please solve this captcha:
 	</div>
 </body>
